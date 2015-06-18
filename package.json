@@ -1,0 +1,29 @@
+{
+  "name": "enterprise-utils",
+  "preferGlobal": false,
+  "version": "0.8.10",
+  "author": "TOTAL.JS ENTERPRISE - Matus Szabo <matthew@totaljs.com>",
+  "description": "set of useful helpers",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/totaljs-enterprise/utils.git"
+  },
+  "keywords": [
+    "utils",
+    "helpers"
+  ],
+  "dependencies":{
+    "validator":"~3.40.1",
+    "shortid":"~2.2.2",
+    "sift":"~1.1.1",
+    "superagent":"~1.2.0"
+  },
+  "analyze": false,
+  "devDependencies": { },
+  "bundledDependencies":[],  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.12"
+  }
+}
