@@ -1,6 +1,6 @@
 # set of useful helpers
 
-## Installation
+### Installation
 ```
 npm install enterprise-utils
 ```
