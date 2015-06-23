@@ -1,7 +1,7 @@
 {
   "name": "enterprise-utils",
   "preferGlobal": false,
-  "version": "0.8.10",
+  "version": "0.8.11",
   "author": "TOTAL.JS ENTERPRISE - Matus Szabo <matthew@totaljs.com>",
   "description": "set of useful helpers",
   "main": "./index.js",

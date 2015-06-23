@@ -9,8 +9,32 @@ var assert = require('assert'),
 /*
  * run tests
  */
-testWatchers(testFsExt);
+cleanTestFolder(true, function(){
+    testWatchers(function(){
+        testFsExt(function(){
+            
+            fsExt.unwatchAll();
+            setTimeout(function(){
+                cleanTestFolder(false, function(){
+                    console.log('fsExt - OK');
+                });
+            }, 500);
+        });
+    });
+});
 
+function cleanTestFolder(alsoCreate, cb){
+    fsExt.existsOrCreateSync('./test_folder');
+    
+    fsExt.rmdirRecursive('./test_folder', function(err){
+        if(err) throw err;
+        
+        if(alsoCreate) fsExt.existsOrCreateSync('./test_folder/test_walk/sub_test_walk/sub_file.txt');
+        if(alsoCreate) fsExt.existsOrCreateSync('./test_folder/test_walk/file.txt');
+        
+        if(cb) cb();
+    });
+}
 
 
 /*
@@ -45,7 +69,7 @@ function testWatchers(cb){
         fsExt.watchRecursive('./test_folder', onChange, function(err, files){
             if(err) throw err;
             
-            //console.warn(files);
+            console.log('fsExt setupWatch - OK');
             cb();
         });
         
@@ -55,7 +79,7 @@ function testWatchers(cb){
 /*
  * test remaining fsExt methods
  */
-function testFsExt(){
+function testFsExt(cb){
     
     // create recursive
     fsExt.existsOrCreate('./test_folder/subfolder/file.json', { data:'[]', replace:false }, function(err){
@@ -102,12 +126,12 @@ function testFsExt(){
                                                 // folder should'not exists any more
                                                 assert.ok(!fs.existsSync('./test_folder/subfolder'));
                                                 
-                                                console.log('fsExt - OK');
+                                                cb();
                                             });
-                                        }, 100);
+                                        }, 500);
                                     });
                                 });
-                            }, 100);
+                            }, 500);
                         });
                     });
                 
