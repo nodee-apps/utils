@@ -1,7 +1,7 @@
 {
   "name": "enterprise-utils",
   "preferGlobal": false,
-  "version": "0.8.11",
+  "version": "0.8.12",
   "author": "TOTAL.JS ENTERPRISE - Matus Szabo <matthew@totaljs.com>",
   "description": "set of useful helpers",
   "main": "./index.js",
@@ -24,6 +24,6 @@
   "bundledDependencies":[],  
   "license": "MIT",
   "engines": {
-    "node": ">=0.12"
+    "node": ">=0.11"
   }
 }
