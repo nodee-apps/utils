@@ -169,13 +169,13 @@ function testParallel() {
             assert.deepEqual(['arg1', 'arg2'], args);
             assert.deepEqual('arg3', arg3in);
             next();
-        }, 50);
+        }, 100);
     })
     .add(function(next){
         setTimeout(function(){
             execOrder.push('p3');
             next();
-        }, 20);
+        }, 50);
     });
     
     for(var i=4;i<6;i++){
@@ -183,7 +183,7 @@ function testParallel() {
             setTimeout(function(){
                 execOrder.push('p' + c);
                 next();
-            }, 10-c);
+            }, 20-2*c);
         });
     }
     
