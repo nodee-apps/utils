@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 /*
  * Load Error extensions
@@ -34,3 +34,8 @@ require('./lib/date.js');
  * Extend RegExp prototype
  */
 require('./lib/regexp.js');
+
+/*
+ * Extend String prototype
+ */
+require('./lib/string.js');
