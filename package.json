@@ -1,7 +1,7 @@
 {
   "name": "enterprise-utils",
   "preferGlobal": false,
-  "version": "0.8.6",
+  "version": "0.8.7",
   "author": "NODEJS ENTERPRISE - Matus Szabo <matthew@nodejsenterprise.com>",
   "description": "set of useful helpers",
   "main": "./index.js",

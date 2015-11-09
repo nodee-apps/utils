@@ -39,3 +39,8 @@ require('./lib/regexp.js');
  * Extend String prototype
  */
 require('./lib/string.js');
+
+/*
+ * Extend Array prototype
+ */
+require('./lib/array.js');
