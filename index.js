@@ -26,6 +26,11 @@ module.exports.sift = require('sift');
 module.exports.request = require('superagent');
 
 /*
+ * Extend superagent.Request prototype
+ */
+require('superagent-retry')(module.exports.request);
+
+/*
  * Extend Date prototype
  */
 require('./lib/date.js');
