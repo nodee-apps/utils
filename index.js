@@ -29,6 +29,7 @@ module.exports.request = require('superagent');
  * Extend superagent.Request prototype
  */
 require('superagent-retry')(module.exports.request);
+require('./lib/request.js')(module.exports.request);
 
 /*
  * Extend Date prototype
