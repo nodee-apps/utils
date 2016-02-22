@@ -1,7 +1,7 @@
 {
   "name": "nodee-utils",
   "preferGlobal": false,
-  "version": "0.9.6",
+  "version": "0.9.7",
   "author": "NODEE - Matus Szabo <matus@nodee.io>",
   "description": "set of useful helpers",
   "main": "./index.js",
@@ -18,7 +18,8 @@
     "shortid":"~2.2.2",
     "sift":"~3.2.1",
     "superagent":"~1.7.2",
-    "superagent-retry":"~0.5.1"
+    "superagent-retry":"~0.5.1",
+    "form-data": "0.2.0"
   },
   "analyze": false,
   "devDependencies": { },
