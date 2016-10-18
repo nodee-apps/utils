@@ -5,12 +5,37 @@ var assert = require('assert'),
  * run test
  */
 
+deepGet();
 isEmpty();
 clone();
 extend();
 update();
 toArray();
 dateStringsToDates();
+
+function deepGet() {
+    var testObject = {
+        'asd':23,
+        'deep':{
+            'emptyString':'',
+            'null': null,
+            'deepprop':'asd',
+            'deeparr':['asd',{ asd:1 }],
+            'fnc':function(){},
+            'NaN': NaN
+        }
+    };
+
+    assert.strictEqual(undefined, object.deepGet(testObject, 'asd.whatever'));
+    assert.strictEqual(1, object.deepGet(testObject, 'deep.deeparr.1.asd'));
+    assert.strictEqual('', object.deepGet(testObject, 'deep.emptyString'));
+    assert.strictEqual(undefined, object.deepGet(testObject, 'deep.emptyString.whatever'));
+    assert.strictEqual(undefined, object.deepGet(testObject, 'deep.null'));
+    assert.strictEqual(undefined, object.deepGet(testObject, 'deep.fnc'));
+    assert.strictEqual(undefined, object.deepGet(testObject, 'deep.NaN'));
+
+    console.log('object.deepGet - OK');
+}
 
 function isEmpty() {
     var testObject = {
