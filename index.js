@@ -17,6 +17,7 @@ module.exports.fsExt = require('./lib/fsExt.js');
 module.exports.password = require('./lib/password.js');
 module.exports.guid = require('./lib/guid.js');
 module.exports.validator = require('./lib/validator.js');
+module.exports.query = require('./lib/query.js');
 
 /*
  * Expose bundled 3-rd party modules

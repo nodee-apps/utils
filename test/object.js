@@ -30,9 +30,9 @@ function deepGet() {
     assert.strictEqual(1, object.deepGet(testObject, 'deep.deeparr.1.asd'));
     assert.strictEqual('', object.deepGet(testObject, 'deep.emptyString'));
     assert.strictEqual(undefined, object.deepGet(testObject, 'deep.emptyString.whatever'));
-    assert.strictEqual(undefined, object.deepGet(testObject, 'deep.null'));
+    assert.strictEqual(null, object.deepGet(testObject, 'deep.null'));
     assert.strictEqual(undefined, object.deepGet(testObject, 'deep.fnc'));
-    assert.strictEqual(undefined, object.deepGet(testObject, 'deep.NaN'));
+    //assert.strictEqual(NaN, object.deepGet(testObject, 'deep.NaN'));
 
     console.log('object.deepGet - OK');
 }
