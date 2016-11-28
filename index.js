@@ -23,8 +23,13 @@ module.exports.query = require('./lib/query.js');
  * Expose bundled 3-rd party modules
  */
 module.exports.shortId = module.exports.shortid = require('shortid');
-module.exports.sift = require('sift');
 module.exports.request = require('superagent');
+Object.defineProperty(module.exports, 'sift', {
+    get: function(){
+        console.warn('nodee-utils: sift is deprecated, use query instead');
+        return require('sift');
+    }
+});
 
 /*
  * Extend superagent.Request prototype
