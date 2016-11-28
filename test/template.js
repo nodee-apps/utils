@@ -66,6 +66,7 @@ testRender("loop test", "@for(var i = 0; i < 3; i++){<span>@i</span>}", {}, "<sp
 testRender("loop test", "@{ var i = 3; }@while(i--){<span>@i</span>}", {}, "<span>2</span><span>1</span><span>0</span>");
 testRender("escape test", "<input yyy='@test' xxx=\"@otherAttr\" />", { test: "nodee's test", otherAttr: "\"one more test\"" }, "<input yyy='nodee&#x27;s test' xxx=\"&quot;one more test&quot;\" />");
 testRender("array param test", "@for(var i = 0; i < data.length; i++){<span>@data[i]</span>}", {data: [1, 2, 3]}, "<span>1</span><span>2</span><span>3</span>");
+testRender("only expression","@order.addressBilling.email",{},"");
 
 it("mixture test", function () {
     var str = "<select>";
