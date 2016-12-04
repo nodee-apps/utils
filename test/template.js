@@ -67,6 +67,7 @@ testRender("loop test", "@{ var i = 3; }@while(i--){<span>@i</span>}", {}, "<spa
 testRender("escape test", "<input yyy='@test' xxx=\"@otherAttr\" />", { test: "nodee's test", otherAttr: "\"one more test\"" }, "<input yyy='nodee&#x27;s test' xxx=\"&quot;one more test&quot;\" />");
 testRender("array param test", "@for(var i = 0; i < data.length; i++){<span>@data[i]</span>}", {data: [1, 2, 3]}, "<span>1</span><span>2</span><span>3</span>");
 testRender("only expression","@order.addressBilling.email",{},"");
+testRender("loop expressions","<!-- <tr></tr><tr></tr> --> <a> @order.items.forEach(function(item){ <span>@item.name</span> }) </a>",{ order:{ items:[{name:'product1'},{name:'product2'}] } },"<!-- <tr></tr><tr></tr> --> <a> <span>product1</span><span>product2</span> </a>");
 
 it("mixture test", function () {
     var str = "<select>";
@@ -171,6 +172,16 @@ it("html comments", function () {
 it("auto parsing email", function () {
     var str = template.render("@'asd@@asd.com' aaa@aaa.org <hello>bbb@bbb.com</hello>", {});
     assert.strictEqual(str, "asd@@asd.com aaa@aaa.org <hello>bbb@bbb.com</hello>");
+});
+
+it("translate service single quote", function () {
+    var str = template.render("@T('test')", {}, { test:'TRANSLATED' });
+    assert.strictEqual(str, "TRANSLATED");
+});
+
+it("translate service double quote", function () {
+    var str = template.render('@T("test")', {}, { test:'TRANSLATED' });
+    assert.strictEqual(str, "TRANSLATED");
 });
 
 console.log('template - OK');
