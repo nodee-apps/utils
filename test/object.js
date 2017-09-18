@@ -5,6 +5,7 @@ var assert = require('assert'),
  * run test
  */
 
+deepHasProperty();
 deepGet();
 isEmpty();
 clone();
@@ -12,6 +13,30 @@ extend();
 update();
 toArray();
 dateStringsToDates();
+
+function deepHasProperty(){
+    var testObj = {
+        prop:{
+            deep: 2,
+            null: null,
+            undef: undefined,
+            fnc: function(){},
+            deeper:{
+                a:[]
+            }
+        }
+    };
+
+    assert.ok( object.deepHasProperty(testObj, 'this') );
+    assert.ok( object.deepHasProperty(testObj, 'prop.deep') );
+    assert.ok( object.deepHasProperty(testObj, 'prop.null') );
+    assert.ok( object.deepHasProperty(testObj, 'prop.undef') );
+    assert.ok( object.deepHasProperty(testObj, 'prop.fnc') );
+    assert.ok( object.deepHasProperty(testObj, 'prop.deeper.a') );
+
+    assert.ok( !object.deepHasProperty(testObj, 'prop.fnc.a') );
+    assert.ok( !object.deepHasProperty(testObj, 'prop.deeper.a.0') );
+};
 
 function deepGet() {
     var testObject = {
@@ -103,14 +128,13 @@ function extend() {
             deeporiginal:true,
             deepprop: undefined,
             deeparr: [ 'asd1', { asd:2 } ] },
-        added: 123  
+        added: 123
     };
     
     var extended = {};
     object.extend(true, extended, testObject, extObject);
-    //console.warn(extended);
     
-    assert.deepEqual(resultObj, extended);
+    assert.deepEqual(resultObj.deep, extended.deep);
     console.log('object.extend - OK');
 }
 
