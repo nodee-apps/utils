@@ -14,12 +14,12 @@
     "helpers"
   ],
   "dependencies":{
-    "validator":"~3.40.1",
-    "shortid":"~2.2.2",
-    "superagent":"~2.2.0",
-    "superagent-retry":"~0.6.0",
-    "form-data": "0.2.0",
-    "jwt-simple":"0.5.1"
+    "validator":"10.11.0",
+    "shortid":"2.2.14",
+    "superagent":"5.0.2",
+    "superagent-retry":"0.6.0",
+    "form-data": "2.3.3",
+    "jwt-simple":"0.5.6"
   },
   "analyze": false,
   "devDependencies": { },
