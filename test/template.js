@@ -148,7 +148,7 @@ it("model property throw error if not defined, and not only variable expression"
     assert.throws(function(){
         var templateStr = "<hello>@undefinedVariable s @(definedParent.undefinedChild.undefinedChild - 1)</hello>";
         var result = template.render(templateStr, { definedParent:'asdasd' });
-    },'Cannot read property \'undefinedChild\' of undefined');
+    }, new TypeError('Cannot read property \'undefinedChild\' of undefined'));
 });
 
 it("define and use function", function () {
@@ -161,7 +161,7 @@ it("compile throws error when trying to get global vars inside template", functi
     assert.throws(function(){
         var templateStr = "<hello>@setTimeout(function(){ console.warn('setTimeout from inside template'); })</hello>";
         var result = template.render(templateStr, { definedParent:'asdasd' });
-    },'setTimeout is not a function');
+    }, new TypeError('setTimeout is not a function'));
 });
 
 it("html comments", function () {
