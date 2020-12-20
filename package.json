@@ -1,7 +1,7 @@
 {
   "name": "nodee-utils",
   "preferGlobal": false,
-  "version": "1.2.3",
+  "version": "1.2.4",
   "author": "NODEE - Matus Szabo <matus@nodee.io>",
   "description": "set of useful helpers",
   "main": "./index.js",
